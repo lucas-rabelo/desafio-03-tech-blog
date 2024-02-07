@@ -1,10 +1,17 @@
-import { Button } from '../Button';
+import { useNavigate } from 'react-router-dom';
 
 import HeroImage from '../../assets/image.svg';
 
+import { Button } from '../components/Button';
 import { Wrapper } from './Wrapper';
 
 export function Header() {
+    const navigate = useNavigate();
+
+    function handleGoPageBlogs() {
+        navigate('/articles');
+    }
+
     return(
         <Wrapper>
             <header className="w-full flex flex-col items-center justify-center gap-3 my-16 lg:flex-row-reverse lg:justify-between lg:mx-0">
@@ -26,6 +33,7 @@ export function Header() {
 
                     <Button 
                         label="Buscar artigos"
+                        onClick={handleGoPageBlogs}
                     />
                 </div>
             </header>

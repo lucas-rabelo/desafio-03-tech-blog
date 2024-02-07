@@ -1,6 +1,4 @@
-import { Button } from '../Button';
-import { Input } from '../Form/Input';
-import { Textarea } from '../Form/TextArea';
+import { ContactForm } from '../Form/ContactForm';
 
 export function Contact() {
     return(
@@ -9,13 +7,7 @@ export function Contact() {
                 Entre em contato
             </h1>
 
-            <form className="flex flex-col w-full lg:w-2/5 gap-6">
-                <Input name="nome" />
-                <Input name="email" />
-                <Textarea name="assunto" />
-
-                <Button label="Entrar em contato"/>
-            </form>
+            <ContactForm />
         </section>
     )
 }
