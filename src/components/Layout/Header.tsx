@@ -1,42 +1,30 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { CaretCircleLeft } from "@phosphor-icons/react";
+import { ReactNode } from "react";
 
-import HeroImage from '../../assets/image.svg';
+type Props = {
+    options?: ReactNode;
+}
 
-import { Button } from '../components/Button';
-import { Wrapper } from './Wrapper';
-
-export function Header() {
+export function Header({ options }: Props) {
     const navigate = useNavigate();
 
-    function handleGoPageBlogs() {
-        navigate('/articles');
+    function handleGoback() {
+        navigate('/');
     }
 
     return(
-        <Wrapper>
-            <header className="w-full flex flex-col items-center justify-center gap-3 my-16 lg:flex-row-reverse lg:justify-between lg:mx-0">
-                <img
-                    className="w-52 h-60 md:w-[330px] md:h-[379.5px]"
-                    src={HeroImage} 
-                    alt="Hero Image SVG" 
-                />
+        <div className="flex justify-between px-4 lg:px-0 mb-3">
+            <div className="flex items-center gap-2">
+                <button onClick={handleGoback} className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-500">
+                    <CaretCircleLeft weight='bold' size={24}/>
+                </button>
+                <h1 className="text-3xl text-black font-bold">
+                    Tech<span className="text-indigo-500 font-bold">Blog</span>
+                </h1>
+            </div>
 
-                <div className="flex flex-col gap-6 md:items-center lg:items-start">
-                    <h1 className="text-2xl md:text-3xl lg:text-4xl leading-8 lg:leading-[3.2rem] font-bold text-slate-950 text-center lg:text-left">
-                        Encontre os <span className="text-2xl md:text-3xl lg:text-4xl leading-8 md:leading-[3.2rem] lg:leading-[3.2rem] font-bold text-indigo-500">melhores artigos</span> <br /> de programação em um só lugar
-                    </h1>
-                    
-                    <p className="text-base md:text-lg lg:text-xl lg:leading-8 font-medium text-center lg:text-left text-slate-950">
-                        Explore o topo da programação em um só lugar!<br /> 
-                        Seu destino único para dicas e tendências atuais.
-                    </p>
-
-                    <Button 
-                        label="Buscar artigos"
-                        onClick={handleGoPageBlogs}
-                    />
-                </div>
-            </header>
-        </Wrapper>
-    )
+            {options}
+        </div>
+    );
 }

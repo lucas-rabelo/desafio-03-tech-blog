@@ -1,14 +1,14 @@
 import { Content } from "../components/Layout/Content";
 import { Wrapper } from "../components/Layout/Wrapper";
 import { BlogFilter } from '../components/Form/BlogFilter';
-import { HeaderSecondary } from '../components/Layout/HeaderSecondary';
+import { Header } from '../components/Layout/Header';
 
 export function BlogList() {
     return(
         <div className="flex flex-col items-center justify-center">
             <Wrapper>
                 <header className="flex flex-col justify-center gap-3 py-6">
-                    <HeaderSecondary />
+                    <Header />
 
                     <BlogFilter />
                 </header>
